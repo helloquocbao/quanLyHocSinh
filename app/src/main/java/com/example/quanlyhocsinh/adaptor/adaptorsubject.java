@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.quanlyhocsinh.ActivitiSubject;
 import com.example.quanlyhocsinh.R;
@@ -43,6 +45,40 @@ public class adaptorsubject extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.listsuject,null);
 
-        return null;
+        TextView TextViewSubjectTitle = view.findViewById(R.id.TextViewSubjectTitle);
+        TextView TextViewCredit = view.findViewById(R.id.TextViewCredit);
+        ImageButton imageDelete = view.findViewById(R.id.subjectdelete);
+        ImageButton imageInfomation = view.findViewById(R.id.subjectinfomation);
+        ImageButton imageUpdate = view.findViewById(R.id.subjectupdate);
+
+        Subject subject = arrayListSubject.get(i);
+
+        TextViewCredit.setText(subject.getNumber_of_credit()+"");
+        TextViewSubjectTitle.setText(subject.getSubject_title());
+
+        int id = subject.getId();
+
+        imageInfomation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        imageDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        imageUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        return view;
     }
 }

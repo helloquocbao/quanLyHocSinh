@@ -5,11 +5,15 @@
       <map>
         <entry key="..\:/QuanLyHocSinh/app/src/main/res/drawable/background_button.xml" value="0.265" />
         <entry key="..\:/QuanLyHocSinh/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.2115" />
+        <entry key="..\:/QuanLyHocSinh/app/src/main/res/layout/activity_add_subject.xml" value="0.22" />
         <entry key="..\:/QuanLyHocSinh/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/QuanLyHocSinh/app/src/main/res/layout/activity_student.xml" value="0.10009057971014493" />
         <entry key="..\:/QuanLyHocSinh/app/src/main/res/layout/activity_subject.xml" value="0.36666666666666664" />
+        <entry key="..\:/QuanLyHocSinh/app/src/main/res/layout/dialogadd.xml" value="0.1" />
         <entry key="..\:/QuanLyHocSinh/app/src/main/res/layout/dialogexit.xml" value="0.25" />
         <entry key="..\:/QuanLyHocSinh/app/src/main/res/layout/dialoginfomation.xml" value="0.25" />
         <entry key="..\:/QuanLyHocSinh/app/src/main/res/layout/listsuject.xml" value="0.33" />
+        <entry key="..\:/QuanLyHocSinh/app/src/main/res/menu/menuadd.xml" value="0.2" />
       </map>
     </option>
   </component>
