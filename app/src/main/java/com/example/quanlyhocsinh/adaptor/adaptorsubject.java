@@ -61,7 +61,7 @@ public class adaptorsubject extends BaseAdapter {
         imageInfomation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                context.infomation(id);
             }
         });
 

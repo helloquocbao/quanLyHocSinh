@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuanLyHocSinh">
         <activity
+            android:name=".ActivitySubjectInfomation"
+            android:exported="false" />
+        <activity
             android:name=".ActivityStudent"
             android:exported="false" />
         <activity
