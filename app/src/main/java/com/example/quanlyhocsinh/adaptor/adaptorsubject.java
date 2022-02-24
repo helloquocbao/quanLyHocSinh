@@ -58,6 +58,8 @@ public class adaptorsubject extends BaseAdapter {
 
         int id = subject.getId();
 
+
+        //click icon thông tin subject
         imageInfomation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,13 +67,17 @@ public class adaptorsubject extends BaseAdapter {
             }
         });
 
+        //click icon xóa
         imageDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //gọi tới phương thức delete()
+                context.delete(id);
 
             }
         });
 
+        //click icon update
         imageUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.widget.Toolbar;
@@ -69,7 +71,7 @@ public class ActivitiSubject extends AppCompatActivity {
                 Intent intent = new Intent(ActivitiSubject.this, ActivitiSubject.class);
                 int id_subject = ArrayListSubject.get(i).getId();
                 //truyền dữ liệu id qua subject qua activity student
-                intent.putExtra("id_subject",id_subject);
+                intent.putExtra("id_subject", id_subject);
                 startActivity(intent);
             }
         });
@@ -112,28 +114,62 @@ public class ActivitiSubject extends AppCompatActivity {
         }
     }
 
-    public void infomation(final int pos){
+    public void infomation(final int pos) {
 
         Cursor cursor = database.getDataSubject();
 
-        while(cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
-            if(id==pos){
-                Intent intent = new Intent(ActivitiSubject.this,ActivitySubjectInfomation.class);
+            if (id == pos) {
+                Intent intent = new Intent(ActivitiSubject.this, ActivitySubjectInfomation.class);
 
-                intent.putExtra("id",id);
+                intent.putExtra("id", id);
                 String title = cursor.getString(1);
                 int credit = cursor.getInt(2);
                 String time = cursor.getString(3);
                 String place = cursor.getString(4);
 
-                intent.putExtra("title",title);
-                intent.putExtra("credit",credit);
-                intent.putExtra("time",time);
-                intent.putExtra("place",place);
+                intent.putExtra("title", title);
+                intent.putExtra("credit", credit);
+                intent.putExtra("time", time);
+                intent.putExtra("place", place);
 
                 startActivity(intent);
             }
         }
+    }
+
+    public void delete(final int possition) {
+        //Dối tượng của sổ
+        Dialog dialog = new Dialog(this);
+        //nạp layout vào dialog
+        dialog.setContentView(R.layout.dialogdeletesubject);
+
+        Button btnYes = dialog.findViewById(R.id.buttonYesDeleteSubject);
+        Button btnNo = dialog.findViewById(R.id.buttonNoDeleteSubject);
+
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // database = new database(ActivitiSubject.this);
+                //xóa subject trong csdl
+                database.DeleteSubject(possition);
+
+                //cập nhập lại activity subject
+                Intent intent = new Intent(ActivitiSubject.this, ActivitiSubject.class);
+                startActivity(intent);
+            }
+        });
+
+        //dống dialog nếu ấn No
+        btnNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+            }
+        });
+
+        //show dialog
+        dialog.show();
     }
 }
